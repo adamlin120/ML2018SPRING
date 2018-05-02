@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import csv
 import sys
-import pickle
 import numpy as np
 import pandas as pd
 from keras.models import load_model
@@ -23,7 +22,7 @@ def submission(Y_pred, name):
     csvCursor.writerows(ans)
     file.close()
 
-kmeans = pickle.load(open('kmeans.sav', 'rb'))
+
 encoder = load_model('./encoder.h5')
 
 X = np.load(sys.argv[1]).astype(np.float64) / 255.0
@@ -31,6 +30,7 @@ X = np.load(sys.argv[1]).astype(np.float64) / 255.0
 # after training, use encoder to encode image, and feed it into Kmeans
 encoded_imgs = encoder.predict(X)
 encoded_imgs = encoded_imgs.reshape(encoded_imgs.shape[0], -1)
+kmeans = KMeans(n_clusters=2, random_state=0).fit(encoded_imgs)
 
 # get test cases
 f = pd.read_csv(sys.argv[2])

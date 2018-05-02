@@ -66,8 +66,8 @@ autoencoder.fit(x=x_train, y=x_train, validation_data=(x_val, x_val),
 # after training, use encoder to encode image, and feed it into Kmeans
 encoded_imgs = encoder.predict(X)
 encoded_imgs = encoded_imgs.reshape(encoded_imgs.shape[0], -1)
-kmeans = KMeans(n_clusters=2, random_state=0).fit(encoded_imgs)
+#kmeans = KMeans(n_clusters=2, random_state=0).fit(encoded_imgs)
 
 # saving model
 encoder.save('./encoder.h5')
-s = pickle.dump(kmeans, open('kmeans.sav', 'wb'))
+#s = pickle.dump(kmeans, open('kmeans.sav', 'wb'))
