@@ -37,4 +37,4 @@ ret = reconstruct(U, sigma, V, n_component=4)
 
 image = convert2plot(ret[ID])
 viewer = ImageViewer(image)
-viewer.save_to_file('./reconstruction.jpg')
+viewer.save_to_file('./reconstruction.png')
