@@ -12,13 +12,20 @@ def convert2plot(im):
     return im
 
 
-def reconstruct(U, sigma, V, n_component=4):
-    ret = U[:, :n_component].dot(np.diag(sigma[:n_component])).dot(V[:n_component])
-    return ret.T
+def reconstruct(y, mean_X, U, n_component=4):
+    y = y - mean_X
+    weight = y.dot(U[:, :n_component])
+
+    ret = weight.dot(U[:, :n_component].T) + mean_X
+
+    return ret
 
 
 DIR_PATH = sys.argv[1]+'/'
 IMAGE_FILE = sys.argv[2]
+    
+#DIR_PATH = '../dataset/Aberdeen/'
+#IMAGE_FILE = '10.jpg'
 
 num_image = 415
 X = np.empty((num_image, 600, 600, 3))
@@ -27,14 +34,14 @@ for i in range(num_image):
 
 X = X.reshape((num_image, -1)) / 255.
 mean_X = np.mean(X, axis=0)
-X = X - mean_X
-U, sigma, V = np.linalg.svd(X.T, full_matrices=False)
-
+X_std = X - mean_X
+U, sigma, V = np.linalg.svd(X_std.T, full_matrices=False)
 
 # testing
 ID = int(IMAGE_FILE.split('.')[0])
-ret = reconstruct(U, sigma, V, n_component=4)
+y = X[ID]
+recon = reconstruct(y, mean_X, U, n_component=4)
 
-image = convert2plot(ret[ID])
+image = convert2plot(recon)
 viewer = ImageViewer(image)
 viewer.save_to_file('./reconstruction.png')
