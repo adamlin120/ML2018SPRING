@@ -1,4 +1,4 @@
-# Editor.md
+# Final Project
 ## Data Preparation
 1. "Download "audio_test.zip" and "audio_train.zip" in https://www.kaggle.com/c/freesound-audio-tagging/data  at the "data" folder
 2. Unzup "audio_test.zip" and "audio_train.zip" respectively at FOLDER "audio_test" and "audio_train" in "data folder"
