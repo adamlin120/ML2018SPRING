@@ -4,12 +4,14 @@
 2. Unzup "audio_test.zip" and "audio_train.zip" respectively at FOLDER "audio_test" and "audio_train" in "data folder"
 
 ## Training
-1. After downloading data, Run the scipt train.sh by command `bash train.sh` and current directory is at "final folder"
+current directory is at "final folder"
+1. After downloading data, Run the scipt train.sh by command `bash train.sh` 
 2. Run the \src\train_con1d.ipynb in IPython Notebook and run all codes
 3. All files required will be at model folder
 
 ## Testing
-1. Run test.sh by command `bash test.sh` and current directory is at "final folder"
+current directory is at "final folder"
+1. Run test.sh by command `bash test.sh` 
 Models are download from Dropbox
 2. The prediction file is saved at "final folder" as `prediction_final.csv`
 
