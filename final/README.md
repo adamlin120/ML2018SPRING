@@ -7,13 +7,13 @@
 current directory is at "final" folder
 1. After downloading data, Run the scipt train.sh by command `bash train.sh` 
 2. Run the \src\train_con1d.ipynb in IPython Notebook and run all codes
-3. All files required will be at model folder
+3. All files required will be saved at model folder
 
 ## Testing
 current directory is at "final" folder
-1. Run test.sh by command `bash test.sh` 
+1. Run test.sh by command `bash test.sh` and
 Models are download from Dropbox
-2. The prediction file is saved at "final folder" as `prediction_final.csv`
+2. The prediction file is saved at current folder as `prediction_final.csv`
 
 ## Library Required
 |   library | version   |
